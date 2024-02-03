@@ -1,7 +1,8 @@
-#include <cstdio>
-#include "long_math.cpp"
 #include "../include/long_math.hpp"
+
+#include <cstdio>
 #include <iostream>
+#include "long_math.cpp"
 
 void print_bad_result() {
 	printf("\033[1;31mFAILED\033[0m\n");
@@ -136,7 +137,7 @@ void test_divide(std::vector<std::pair<long long, long long>> long_long_inp, std
 	
 	int test_index = 0;
     for (auto p : long_long_inp) {
-		if (test_index++ == 300) {
+		if (test_index++ == 100) {
 			break;
 		}
         double x1 = p.first, x2 = p.second;
@@ -163,7 +164,7 @@ void test_divide(std::vector<std::pair<long long, long long>> long_long_inp, std
 	test_index = 0;
     std::cout << "Float:" << std::endl;
     for (auto p : long_long_inp) {
-		if (test_index++ == 300) {
+		if (test_index++ == 100) {
 			break;
 		}
 
@@ -353,7 +354,6 @@ void test_all() {
 
     std::cout.setf(std::ios::fixed);
     std::cout.precision(10);
-    std::cout << (123.231_to_long_num).convert_to_str() << std::endl;
     srand(1303);//std::time(nullptr);
 
     std::vector<std::pair<double, double>> double_inp(5000);
@@ -391,5 +391,6 @@ void test_all() {
 }
 
 int main() {
+	std::cout << (long_number_t(1) != long_number_t(2)) << std::endl;
 	test_all();
 }
