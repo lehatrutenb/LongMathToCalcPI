@@ -1,0 +1,5 @@
+if(EXISTS "/Users/lehatrutenb/Desktop/hse/C++/LongMathToCalcPI/PiCalculating_build/LongMath/test[1]_tests.cmake")
+  include("/Users/lehatrutenb/Desktop/hse/C++/LongMathToCalcPI/PiCalculating_build/LongMath/test[1]_tests.cmake")
+else()
+  add_test(test_NOT_BUILT test_NOT_BUILT)
+endif()
