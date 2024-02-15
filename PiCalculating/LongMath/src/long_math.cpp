@@ -1,6 +1,4 @@
-#include "../include/long_math.hpp"
 #include <assert.h>
-
 #include <cstdio>
 #include <cstdlib>
 #include <ctime>
@@ -10,11 +8,12 @@
 #include <vector>
 #include <random>
 #include <compare>
-
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <string>
+
+#include "../include/long_math.hpp"
 
 namespace long_math {
 

@@ -1,6 +1,7 @@
-#include "gtest/gtest.h"
 #include <cstdio>
 #include <random>
+
+#include "gtest/gtest.h"
 
 #include "../LongMath/include/long_math.hpp"
 #include "../LongMath/src/long_math.cpp"

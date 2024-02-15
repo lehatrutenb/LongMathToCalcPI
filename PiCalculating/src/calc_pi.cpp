@@ -1,4 +1,3 @@
-#include "../LongMath/include/long_math.hpp"
 #include <cstdio>
 #include <iostream>
 #include <chrono>
@@ -6,6 +5,9 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+
+#include "../LongMath/include/long_math.hpp"
+#include "../include/calc_pi.h"
 
 long_math::long_number_t calc_arctg(long_math::long_number_t x, const unsigned amt_iterations=10, const unsigned amt_of_digits=10) {
 	x.set_min_divide_accuracy(amt_of_digits);
