@@ -1,24 +1,31 @@
+.ONESHELL: # make all commands executable in one shell
+.SHELLFLAGS += -e
+
 CreateBuildLib:
 	mkdir PiCalculating_build
-	cp Makefile PiCalculating/Makefile
 	cd PiCalculating_build
 	cmake ../PiCalculating
 
 BuildCmakeRelease:
-	cmake ../PiCalculating -DPRINT_TIME_INFO=OFF -DSetDebugBuildType=OFF
+	cd PiCalculating_build
+	# can't use cd in another target - not one shell
+
+	cmake ../PiCalculating -DPRINT_TIME_INFO=OFF -DSetDebugBuildType=OFF -DEnableCoverage=OFF
 	cmake --build .
 
 BuildRunCmakeDebug:
-	cmake ../PiCalculating  -DPRINT_TIME_INFO=ON  -DSetDebugBuildType=ON
-	cmake --build
+	cd PiCalculating_build
+	cmake ../PiCalculating  -DPRINT_TIME_INFO=ON  -DSetDebugBuildType=ON -DEnableCoverage=OFF
+	cmake --build .
 
 	./PiCalculatingTest
 	./LongMath/LongMathTest
 
 BuildRunCmakeCoverage:
-	lcov --directory ./build/ --capture --output-file ./code_coverage.info -rc lcov_branch_coverage=1
+	cd PiCalculating_build
+	lcov --directory . --capture --output-file ./code_coverage.info -rc lcov_branch_coverage=1
 
-	cmake ../PiCalculating  -DPRINT_TIME_INFO=ON  -DSetDebugBuildType=ON -DEnableCoverage
+	cmake ../PiCalculating  -DPRINT_TIME_INFO=ON  -DSetDebugBuildType=ON -DEnableCoverage=ON
 	cmake --build .
 
 	./PiCalculatingTest

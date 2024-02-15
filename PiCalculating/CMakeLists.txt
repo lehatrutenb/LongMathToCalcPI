@@ -6,16 +6,16 @@ set (CMAKE_CXX_STANDARD_REQUIRED True)
 
 option(SetDebugBuildType "Set on if want not to build as release and use O2" OFF)
 
-if (NOT SetDebugBuildType) {
+if (NOT SetDebugBuildType)
     set(CMAKE_BUILD_TYPE Release)
     add_compile_options(-O2)
-}
+endif()
 
 include(cmake/Core.cmake)
 include(FetchContent)
 FetchContent_Declare(
-  googletest
-  URL https://github.com/google/googletest/archive/f8d7d77c06936315286eb55f8de22cd23c188571.zip
+    googletest
+    URL https://github.com/google/googletest/archive/f8d7d77c06936315286eb55f8de22cd23c188571.zip
 )
 
 # For Windows: Prevent overriding the parent project's compiler/linker settings

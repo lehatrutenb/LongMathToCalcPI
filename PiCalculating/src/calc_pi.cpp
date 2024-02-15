@@ -66,6 +66,7 @@ long_math::long_number_t calc_pi_bpf_method(const unsigned amt_of_digits=10, con
 
 #ifdef PRINT_TIME_INFO
 	std::clock_t c_start = std::clock();
+	int clock_index = 0;
 #endif
 
 
@@ -107,7 +108,10 @@ long_math::long_number_t calc_pi_bpf_method(const unsigned amt_of_digits=10, con
 		const std::clock_t c_end = std::clock();
     	const auto t_end = std::chrono::high_resolution_clock::now();
  
-    	std::cout << std::fixed << "CPU time used: " << 1000.0 * (c_end - c_start) / CLOCKS_PER_SEC << "ms\n";
+    	std::cout << std::fixed << "CPU time used: " << 1000.0 * (c_end - c_start) / CLOCKS_PER_SEC << "ms  ";
+		if (clock_index++ % 5 == 0) {
+			std::cout << '\n';
+		}
 		c_start = std::clock();
 #endif
 	}

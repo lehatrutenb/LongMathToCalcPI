@@ -1,1 +1,1 @@
-/* #undef PRINT_TIME_INFO */
+#define PRINT_TIME_INFO ON
