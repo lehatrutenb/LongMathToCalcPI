@@ -1,5 +1,0 @@
-if(EXISTS "/Users/lehatrutenb/Desktop/hse/C++/LongMathToCalcPI/PiCalculating_build/LongMath/LongMathTest[1]_tests.cmake")
-  include("/Users/lehatrutenb/Desktop/hse/C++/LongMathToCalcPI/PiCalculating_build/LongMath/LongMathTest[1]_tests.cmake")
-else()
-  add_test(LongMathTest_NOT_BUILT LongMathTest_NOT_BUILT)
-endif()
