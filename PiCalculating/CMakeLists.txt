@@ -3,9 +3,13 @@ project (PiCalculating)
 
 set (CMAKE_CXX_STANDARD 20)
 set (CMAKE_CXX_STANDARD_REQUIRED True)
-#set(CMAKE_BUILD_TYPE Release)
 
-add_compile_options(-O2)
+option(SetDebugBuildType "Set on if want not to build as release and use O2" OFF)
+
+if (NOT SetDebugBuildType) {
+    set(CMAKE_BUILD_TYPE Release)
+    add_compile_options(-O2)
+}
 
 include(cmake/Core.cmake)
 include(FetchContent)
